@@ -11,3 +11,10 @@ def ssh_run_single_command(hostname, username, password, command):
     ssh.close()
     return output
 
+
+class Switch:
+    def __init__(self, hostname, ip_address):
+        self.hostname = hostname
+        self.ip_address = ip_address
+
+
