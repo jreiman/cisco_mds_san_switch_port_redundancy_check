@@ -6,19 +6,27 @@ def ssh_run_single_command(ip_address, username, password, command):
     ssh.connect(hostname=ip_address, port=22, username=username, password=password)
     stdin, stdout, stderr = ssh.exec_command(command)
     output = stdout.readlines()
-    output = [i.rstrip() for i in output]
+    output_with_ending_whitespace_removed = [i.rstrip() for i in output]
     ssh.close()
-    return output
+    return output_with_ending_whitespace_removed
 
 class Switch:
-    def __init__(self, hostname, ip_address):
-        self.hostname = hostname
+    def __init__(self, ip_address, username, password):
         self.ip_address = ip_address
+        self.username = username
+        self.password = password
     
-    def list_down_ports(self, username, password):
-        command_list_down_ports = "show interface brief | egrep -i 'fc' | egrep -v 'sup' | egrep -v 'up|trunking' | cut -d ' ' -f 1 | no-more"
-        output = ssh_run_single_command(self.ip_address, username, password, command_list_down_ports)
+    def get_list_of_up_ports(self):
+        command_list_of_down_ports = "show interface brief | egrep -i 'fc' | egrep -v 'sup' | egrep 'up|trunking' | cut -d ' ' -f 1 | no-more"
+        output = ssh_run_single_command(self.ip_address, self.username, self.password, command_list_of_down_ports)
         return output
+
+    def get_hostname(self):
+        command_show_switchname = "show switchname"
+        output = ssh_run_single_command(self.ip_address, self.username, self.password, command_show_switchname)
+        return output
+    
+    
 
 
 
