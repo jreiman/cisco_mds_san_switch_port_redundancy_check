@@ -1,5 +1,5 @@
 import unittest
-from list_comparison import find_differences_between_two_lists_and_sort_result
+from modules.list_comparison import find_differences_between_two_lists_and_sort_result
 
 differences = find_differences_between_two_lists_and_sort_result
 

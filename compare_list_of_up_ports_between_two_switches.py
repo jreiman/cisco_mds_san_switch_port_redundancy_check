@@ -1,6 +1,6 @@
-from san_switch import Switch
+from modules.san_switch import Switch
 from sys import argv
-from list_comparison import find_differences_between_two_lists_and_sort_result as differences
+from modules.list_comparison import find_differences_between_two_lists_and_sort_result as differences
 
 switch1_ip_address = argv[1]
 switch2_ip_address = argv[2]
@@ -16,8 +16,8 @@ def main():
     switch1_list_of_up_ports = switch1.get_list_of_up_ports()
     switch2_list_of_up_ports = switch2.get_list_of_up_ports()
     differences_between_switch1_and_switch2_list_of_up_ports = differences(switch1_list_of_up_ports, switch2_list_of_up_ports)
-    print(switch1_hostname)
-    print(switch2_hostname)
+    print("Compare list of up ports between switches " + switch1_hostname[0] + " and " + switch2_hostname[0] + ": " + str(differences_between_switch1_and_switch2_list_of_up_ports))
+    
     print(switch1_list_of_up_ports)
     print(switch2_list_of_up_ports)
     print(differences_between_switch1_and_switch2_list_of_up_ports)
