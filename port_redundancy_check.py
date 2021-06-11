@@ -16,11 +16,7 @@ def main():
     switch1_list_of_up_ports = switch1.get_list_of_up_ports()
     switch2_list_of_up_ports = switch2.get_list_of_up_ports()
     differences_between_switch1_and_switch2_list_of_up_ports = differences(switch1_list_of_up_ports, switch2_list_of_up_ports)
-    print("Compare list of up ports between switches " + switch1_hostname[0] + " and " + switch2_hostname[0] + ": " + str(differences_between_switch1_and_switch2_list_of_up_ports))
-    
-    print(switch1_list_of_up_ports)
-    print(switch2_list_of_up_ports)
-    print(differences_between_switch1_and_switch2_list_of_up_ports)
+    print("Non-Redundant Ports for Switch Pair " + switch1_hostname[0] + " & " + switch2_hostname[0] + ": " + str(differences_between_switch1_and_switch2_list_of_up_ports))
 
 if __name__ == '__main__':
     main()
