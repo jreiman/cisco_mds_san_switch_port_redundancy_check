@@ -14,7 +14,7 @@ While there are many products that will monitor the status of switch ports, very
 - Python 3.9+  
 - Paramiko SSH Module  
 ```python
-python3 -m pip install paramiko
+python -m pip install paramiko
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ The program file "port_redundancy_check.py" requires 4 arguments to be passed in
 **Both switches must use the same username and password*.
 
 ```python
-python3 port_redundancy_check.py <switch1_ip> <switch2_ip> <username> <password>
+python port_redundancy_check.py <switch1_ip> <switch2_ip> <username> <password>
 ```
 
 
