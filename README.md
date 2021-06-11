@@ -1,14 +1,16 @@
 # Cisco MDS Switch Port Redundancy Check
 
 ## Description
-The Cisco MDS switch port redundancy check application is used to compare a list of connected ports between 2 Cisco MDS SAN switches and list the ports that are not up on both switches. 
+The Cisco MDS switch port redundancy check is used to compare a list of connected ports between 2 Cisco MDS SAN switches and list the ports that are up on only 1 of the 2 switches.
 
 ## What Problem Does This Solve?
 It is a best practice in SAN fibre channel switch installations to deploy switches in pairs with each switch in a seperate fabric.   
 
-Devices connected into the SAN are connected to the same port on each switch to provide connection redundancy.
+Devices are connected to the same port on each switch to provide connection redundancy.
 
-While there are many products that will monitor the status of switch ports, very few are able to compare the state of the ports between 2 switches to determine if a connected device has lost connection redundancy.
+There are many programs that will alert on down ports, but they also alert when a port goes down for a planned activity such as a server reboot which can create a lot of false alerts.
+
+By comparing the list of up ports on a pair of switches and listing those ports that are only up on 1 of the 2 switches, it eliminates the false alerts when both ports are down during a planned server reboot.
 
 ## Requirements
 - Python 3.9+  
